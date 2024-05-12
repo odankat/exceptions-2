@@ -16,10 +16,15 @@ public class User {
         } else {
             throw new WrongLoginException("логин не правильный ");
         }
-        if (password.equals(confirmPassword) == true && password.matches("[a-zA-Z0-9_]+") && password.length() <= 20) {
+        if ( password.matches("[a-zA-Z0-9_]+") && password.length() <= 20) {
             System.out.println("Пароль правильный");
         } else {
             throw new WrongPasswordException("Пароль не правильный");
+        }
+        if (password.equals(confirmPassword) == true) {
+
+        } else {
+            throw new WrongPasswordException("Пароли не совпадают");
         }
     }
     }
