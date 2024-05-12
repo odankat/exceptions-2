@@ -10,26 +10,17 @@ public class User {
     }
 
     public void Check() {
-        try {
-            if (login.matches("[a-zA-Z0-9_]+") && login.length() <= 20) {
-                System.out.println("Логин правильный");
-            } else {
-                throw new WrongLoginException();
-            }
-        } catch (WrongLoginException e) {
-            throw new WrongLoginException();
+
+        if (login.matches("[a-zA-Z0-9_]+") && login.length() <= 20) {
+            System.out.println("Логин правильный");
+        } else {
+            throw new WrongLoginException("логин не правильный ");
         }
-        try {
-
-            if (password.equals(confirmPassword) == true && password.matches("[a-zA-Z0-9_]+") && password.length() <= 20) {
-                System.out.println("Заебись");
-            } else {
-                throw new WrongPasswordException();
-            }
-        } catch (WrongPasswordException e) {
-            throw new WrongPasswordException();
+        if (password.equals(confirmPassword) == true && password.matches("[a-zA-Z0-9_]+") && password.length() <= 20) {
+            System.out.println("Пароль правильный");
+        } else {
+            throw new WrongPasswordException("Пароль не правильный");
         }
-
-
     }
-}
+    }
+
